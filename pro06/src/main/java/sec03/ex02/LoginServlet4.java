@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * login4.html 이 get 방식으로 데이터를 줘서 doGet메서드를 타게 된다.
  * 이후 해당 메서드 안에 잇는 doHandle 메서드를 호출하기 때문에 
  */
-@WebServlet("/login4")
+//@WebServlet("/login4")
 public class LoginServlet4 extends HttpServlet {
 	//private static final long serialVersionUID = 1L;
 

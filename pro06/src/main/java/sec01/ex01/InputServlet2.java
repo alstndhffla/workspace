@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class InputServlet2
  */
-@WebServlet("/input2")
+//@WebServlet("/input2")
 public class InputServlet2 extends HttpServlet {
 //	private static final long serialVersionUID = 1L;
 
