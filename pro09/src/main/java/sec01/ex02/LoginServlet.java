@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 //URL Rewriting 을 이용한 세션 트래킹 실습
-@WebServlet("/login")
+//@WebServlet("/login")
 public class LoginServlet extends HttpServlet{
 	public void init() {
 		System.out.println("init 메서드 호출");
