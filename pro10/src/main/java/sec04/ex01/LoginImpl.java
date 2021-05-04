@@ -1,0 +1,36 @@
+package sec04.ex01;
+
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
+
+//인터페이스로 구현해 세션에 바인딩시 이벤트를 처리한다.
+public class LoginImpl implements HttpSessionBindingListener {
+	String user_id;
+	String user_pw;
+	static int total_user = 0;	//세션에 바인딩시 1씩 증가시킨다.
+	public LoginImpl() {
+		
+	}
+	
+	public LoginImpl(String user_id, String user_pw) {
+		this.user_id = user_id;
+		this.user_pw = user_pw;				
+	}
+	
+	//세션에 저장시 접속자수 증가
+	@Override
+	public void valueBound(HttpSessionBindingEvent arg0) {
+		System.out.println("사용자 접속");
+		++total_user;
+		
+	}
+	
+	//세션에서 소멸시 접속자 수 감소
+	@Override
+	public void valueUnbound(HttpSessionBindingEvent arg0) {
+		// TODO Auto-generated method stub
+		System.out.println("사용자 접속 해제");
+		total_user--;
+	}
+
+}

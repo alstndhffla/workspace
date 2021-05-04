@@ -8,8 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-@WebServlet("/login")
+//@WebServlet("/login")
 public class LoginServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException{
@@ -25,6 +26,35 @@ public class LoginServlet extends HttpServlet{
 	throws ServletException, IOException{
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
-		PrintWriter out = 
+		PrintWriter out = response.getWriter();
+		
+		//로그인창에서 전송된 아이디와 비밀번호를 가져온다.
+		String user_id = request.getParameter("user_id");
+		String user_pwd = request.getParameter("user_pwd");
+		
+		//멤버vo 생성하고 속성에 id와 비밀번호를 입력
+		MemberVO memberVO = new MemberVO();
+		memberVO.setId(user_id);
+		memberVO.setPwd(user_pwd);
+		
+		MemberDAO dao = new MemberDAO();
+		boolean result = dao.isExisted(memberVO);	//멤버dao의 isexisted()메서드를 호출하면서 memberVO를 전달한다.
+		
+		if(result) {
+			HttpSession session = request.getSession();
+			session.setAttribute("isLogon", true);	//조회한 결과가 true면 isLogon 속성을 true로 세션에 저장한다.
+			//조회한 결과가 true면 id와 비밀번호를 세션에 저장한다.
+			session.setAttribute("login.id", user_id);
+			session.setAttribute("login.pwd", user_pwd);
+			
+			out.print("<html><body>");
+			out.print("안녕하세요"+user_id+"!!");
+			out.print("<a href='show'>회원정보 보기</a>");
+			out.print("</body></html>");
+		}else {
+			out.print("<html><body><center>회원 아이디가 틀립니다.");
+			out.print("<a href='login3.html'>다시 로그인하기</a>");
+			out.print("</body></html>");
+		}
 	}
 }
