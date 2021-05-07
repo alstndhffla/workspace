@@ -14,7 +14,7 @@ isELIgnored="false"  %>
 	   <input  type="submit" value="로그인" /> <input type="reset" value="다시입력"  />
    </form> 
    <br><br>
-  <!--  <a href="http://localhost:8090/pro14/test01/memberForm.jsp">회원가입하기</a> -->
+  <!--  <a href="http://localhost:8090/pro14/test01/memberForm.jsp">회원가입하기</a> -->	<!-- 직접 컨텍스트 이름을 요청해 입력해 요청. -->
     <%--   <a href="<%=request.getContextPath() %>/test01/memberForm.jsp">회원가입하기</a>  --%>
    <a href="${pageContext.request.contextPath}/test01/memberForm.jsp">회원가입하기</a>
    

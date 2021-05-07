@@ -23,7 +23,7 @@
        <td>${param.pwd} </td>
        <td>${param.name } </td>
        <td>${param.email }</td>
-       <td>${requestScope.address}</td>
+       <td>${requestScope.address}</td>	<!-- 다른 jsp에서 바인딩된 address 값을 참조하여 출력한다. -->
    </tr>
 </table>
 </body>
