@@ -26,11 +26,13 @@
    </tr>
 <c:choose> 
    <%-- <c:when test="${name==null}"> --%>
-   <c:when test="${empty name}">
+   <c:when test="${empty name}">	<!-- 변수 name 이 null 이거나 빈 문자열인지 체크 -->
       <tr align="center">
          <td colspan=5 >이름을 입력하세요!!</td> 
       </tr>
    </c:when>
+   
+   <!-- name이 정상적이면 회원정보를 출력. -->
    <c:otherwise >
       <tr align="center">
          <td>${id}</td>

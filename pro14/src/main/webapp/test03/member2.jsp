@@ -19,6 +19,7 @@ MemberBean m2 = new MemberBean("ki", "4321", "기성용", "ki@test.com");
     membersMap.put("membersList",  membersList);  
 %>
 <c:set var="membersList" value="${membersMap.membersList}"  />
+<!-- 태그를 이용해 HashMap 에 저장된 ArrayList에 접근하기 위해 사용하기 편리한 이름으로 설정. -->
 
 <html>
 <head>
@@ -40,12 +41,14 @@ MemberBean m2 = new MemberBean("ki", "4321", "기성용", "ki@test.com");
       <td>${membersMap.email }</td> 
 </tr>
     <tr align=”center”>
+    <!-- 태그로 설정한 변수 이름으로 접근하여 출력 -->
       <td>${membersList[0].id}</td>
       <td>${membersList[0].pwd}</td>
       <td>${membersList[0].name}</td>
       <td>${membersList[0].email}</td>
    </tr>
    <tr align=”center”>
+   <!-- 태그로 설정한 변수 이름으로 접근하여 출력 -->
       <td>${membersList[1].id}</td>
       <td>${membersList[1].pwd}</td>
       <td>${membersList[1].name}</td>

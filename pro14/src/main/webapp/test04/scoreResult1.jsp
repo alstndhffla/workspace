@@ -12,8 +12,10 @@
    <title>학점 변환 결과</title>
 </head>
 <body>
-   <c:set var="score" value="${param.score }" />
+   <c:set var="score" value="${param.score }" />	<!-- score변수에 할당 -->
    <h1>시험점수  <c:out  value="${score}" /></h1><br>
+   
+   <!-- 조건이 여러개인 경우 태그를 이용해 점수를 해당하는 학점으로 변환 -->
    <c:choose>
       <c:when test="${score>=90 && score<100 }">
           <h1>A학점입니다.</h1>

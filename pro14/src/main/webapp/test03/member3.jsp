@@ -12,6 +12,7 @@
 <c:set  var="age"  value="${22}"  scope="page" />
 <c:set  var="height"  value="${177}"  scope="page" />
 
+<!-- 변수 나이와 키를 삭제 -->
 <c:remove var="age"  />
 <c:remove var="height"  />
 <html>
@@ -29,6 +30,7 @@
       <td width="7%" ><b>키</b></td>
    </tr>
    <tr align="center">
+   <!-- 표현언어에서 변수 값 출력 -->
       <td>${id}</td>
       <td>${pwd}</td>
       <td>${name}</td>

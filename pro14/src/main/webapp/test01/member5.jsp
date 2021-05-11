@@ -7,18 +7,23 @@
 %>    
 <jsp:useBean  id="m1" class="sec01.ex01.MemberBean"/>
 <jsp:setProperty name="m1" property="*"  />
+
+<!-- MemberBean 객체를 저장할 ArrayList 객체를 생성 -->
 <jsp:useBean  id="membersList" class="java.util.ArrayList" />
+<!-- 회원정보를 저장할 HashMap 객체를 <useBean> 액션 태그를 이용해 생성. -->
 <jsp:useBean  id="membersMap" class="java.util.HashMap" />
 <%	
+//HashMap에 key/value 쌍으로 회원 정보를 저장.
    membersMap.put("id", "park2");
    membersMap.put("pwd", "4321");
    membersMap.put("name","박지성");
    membersMap.put("email","park2@test.com");
    
-   MemberBean m2 = new MemberBean("son", "1234", "손흥민", "son@test.com");
+   MemberBean m2 = new MemberBean("son", "1234", "손흥민", "son@test.com");	//회원 정보를 저장하는 Memberbean 객체를 생성
+   //전송된 회원 정보와 자바 코드로 생성한 회원 정보를 ArrayList에 저장
    membersList.add(m1);
    membersList.add(m2); 
-   membersMap.put("membersList",  membersList);  
+   membersMap.put("membersList",  membersList);	//회원 정보가 저장된 memberList를 memberList라는 key로 HashMap 에 저장.
 %>
 <html>
 <head>
@@ -34,18 +39,21 @@
       <td width="20%"><b>이메일</b></td>
 </tr>
 <tr align=center>
+<!-- Hashmap 뒤에 .(마침표) 연산자로 저장 시 사용한 key 를 사용하여 value 를 가져온다. -->
       <td>${membersMap.id}</td>
       <td>${membersMap.pwd}</td>
       <td>${membersMap.name}</td>
       <td>${membersMap.email }</td> 
 </tr>
     <tr align=center>
+    <!-- HashMap 에 저장된 ArrayList에 .(마침표)를 이용해 접근하여 첫 번째 회원 정보를 출력. -->
       <td>${membersMap.membersList[0].id}</td>
       <td>${membersMap.membersList[0].pwd}</td>
       <td>${membersMap.membersList[0].name}</td>
       <td>${membersMap.membersList[0].email}</td>
    </tr>
    <tr align=center>
+   <!-- ArrayList에 저장된 두번째 회원정보를 출력. -->
       <td>${membersMap.membersList[1].id}</td>
       <td>${membersMap.membersList[1].pwd}</td>
       <td>${membersMap.membersList[1].name}</td>

@@ -17,7 +17,7 @@
    <c:set var="price" value="100000000" />
    <fmt:formatNumber  value="${price}" type="number" var="priceNumber" />
     통화로 표현 시 :
-      <fmt:formatNumber type="currency" currencySymbol="￦"   value="${price}" groupingUsed="true"/><br>
+      <fmt:formatNumber type="currency" currencySymbol="￦"   value="${price}" groupingUsed="true"/><br>		<!-- 숫자를 원화로 표시 -->
     퍼센트로 표현 시 : 
       <fmt:formatNumber value="${price}" type="percent"   groupingUsed="false" /><br>
     일반 숫자로 표현 시 : ${priceNumber}<br>

@@ -2,8 +2,8 @@
      import="sec01.ex01.*"  pageEncoding="UTF-8"%>
 <%
   request.setCharacterEncoding("utf-8");
-  MemberBean member = new MemberBean("lee", "1234", "이순신", "lee@test.com");
-  request.setAttribute("member", member);
+  MemberBean member = new MemberBean("lee", "1234", "이순신", "lee@test.com");	//MemberBean 객체 생성 후 회원 정보를 속성에 설정.
+  request.setAttribute("member", member);	//속성 이름 member로 MemberBean 객체를 바인딩한다.
 %>    
 
 <html>

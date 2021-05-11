@@ -3,12 +3,12 @@
     isELIgnored="false"  %>
 <%
    request.setCharacterEncoding("UTF-8");
-   List membersList = new ArrayList();
-   MemberBean m1 = new MemberBean("lee", "1234", "이순신", "lee@test.com");
+   List membersList = new ArrayList();	//ArrayList 객체를 생성.
+   MemberBean m1 = new MemberBean("lee", "1234", "이순신", "lee@test.com");	//Memberbean 객체를 생성한 후 두 명의 회원 정보를 저장.
    MemberBean m2 = new MemberBean("son", "1234", "손흥민", "son@test.com");
-   membersList.add(m1);
+   membersList.add(m1);	//두 개의 MemberBean 객체를 ArrayList에 저장
    membersList.add(m2);
-   request.setAttribute("membersList", membersList);
+   request.setAttribute("membersList", membersList);	//request 내장 객체에 ArrayList를 속성 이름 memberList로 바인딩.
 %>
 <!DOCTYPE html>
 <html>

@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	<!-- core태그 라이브러리를 사용하기 위해 반드시 선언해야 한다. -->
 <%
   request.setCharacterEncoding("UTF-8");
 %>  
 
+<!-- <c:set>태그를 이용해 변수를 선언한다. value 속성에는 표현 언어를 사용해서 초기화할 수 있다. -->
 <c:set  var="id"  value="hong"  scope="page" />
 <c:set  var="pwd"  value="1234"  scope="page" />
 <c:set  var="name"  value="${'홍길동'}"  scope="page" />
@@ -27,6 +28,7 @@
       <td width="7%" ><b>키</b></td>
    </tr>
    <tr align="center">
+   <!-- 표현언어로 변수에 바로 접근하여 값을 출력. -->
       <td>${id}</td>
       <td>${pwd}</td>
       <td>${name}</td>

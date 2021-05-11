@@ -17,6 +17,7 @@ isELIgnored="false"  %>
   <!--  <a href="http://localhost:8090/pro14/test01/memberForm.jsp">회원가입하기</a> -->	<!-- 직접 컨텍스트 이름을 요청해 입력해 요청. -->
     <%--   <a href="<%=request.getContextPath() %>/test01/memberForm.jsp">회원가입하기</a>  --%>
    <a href="${pageContext.request.contextPath}/test01/memberForm.jsp">회원가입하기</a>
-   
+   <!-- 19라인: request의 getContextPath() 메서드를 이용해 컨텍스트 이름을 가져온다. -->
+   <!-- 자바 코드를 사용하지 않고 pageContext의 속성인 request 하위의 contextPath 속성으로 컨텍스트 이름을 가져온다. -->
 </body>
 </html>

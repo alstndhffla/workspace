@@ -28,6 +28,8 @@ list-style:none ; border-bottom: 2px solid lightgray;position:relative; }
       <span >이미지 이름</span>
       <span >선택하기</span>
     </li>
+    
+<!-- 이미지와 체크박스를 연속해서 나타낸다. -->    
 <c:forEach var="i"  begin="1" end="9" step="1"  >
 	<li>
 	   <a href='#' style='margin-left:50px'  ><img src='../image/duke.png' width='90' height='90' alt='' /></a>

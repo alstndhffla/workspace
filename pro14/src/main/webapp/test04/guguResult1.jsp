@@ -17,6 +17,7 @@
     <td colspan="2"><c:out value="${dan}" />단 출력  </td>
   </tr>
 
+<!-- 구구단 출력 -->
 <c:forEach var="i"  begin="1" end="9" step="1"  >  
   <tr align=”center”> 
      <td width="400"> 

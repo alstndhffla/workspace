@@ -27,8 +27,12 @@
       <td width="5%" ><b>이름</b></td>
       <td width="5%"><b>이메일</b></td>
 </tr>
+
+<!-- memberList에 저장된 회원 수만큼 반복 변수 i를 0부터 1씩 증가시키면서 forEach 문을 실행. -->
  <c:forEach var="i" begin="0" end="2" step="1" >	
    <tr align="center">
+   
+   <!-- 반복 변수 i를 ArrayList의 인덱스로 사용해 회원 정보를 차레대로 출력 -->
       <td>${membersList[i].id}</td>
       <td>${membersList[i].pwd}</td>
       <td>${membersList[i].name}</td>

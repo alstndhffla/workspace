@@ -13,7 +13,9 @@
 <title>리다이렉트 페이지</title>
 </head>
 <body>
+<!-- 리다이렉트할 페이지를 설정 -->
 <c:redirect  url="/test01/member1.jsp"  >
+	<!-- 리다이렉트할 페이지로 전달할 매개변수를 설정. -->
   <c:param  name="id" value="${'hong'}" />
   <c:param  name="pwd" value="${'1234'}" />
   <c:param  name="name" value="${'홍길동'}" />
