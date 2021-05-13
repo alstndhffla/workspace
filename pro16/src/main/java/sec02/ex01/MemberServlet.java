@@ -1,4 +1,4 @@
-package sec01.ex01;
+package sec02.ex01;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,13 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class AjaxTest1
- */
-@WebServlet("/ajaxTest1")
-public class AjaxTest1 extends HttpServlet {
-	//private static final long serialVersionUID = 1L;
-
+@WebServlet("/mem")
+public class MemberServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -36,10 +31,17 @@ public class AjaxTest1 extends HttpServlet {
 	private void doHandle(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
-		String param = (String)request.getParameter("param");
-		System.out.println("param = " + param);
 		PrintWriter writer = response.getWriter();
-		writer.print("안녕하세요. 서버입니다.");
+		String id = (String)request.getParameter("id");
+		System.out.println("id =" + id);
+		MemberDAO memberDAO = new MemberDAO();
+		boolean overlappedID = memberDAO.overlappedID(id);	//id 중복 여부 체크
+		
+		//결과메시지 전송
+		if(overlappedID == true) {
+			writer.print("not_usable");
+		}else {
+			writer.print("usable");
+		}
 	}
-
 }
