@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!-- 사용할 클래스(객체)를 선언. class 는 생성할 클래스로 패키지이름까지 입력. id 는 빈 클래스(객체)의 고유 이름 -->
+	<bean class="com.spring.ex01.PersonServiceImpl" id="personService">
+		<!-- 사용할 클래스안에서 사용할 값(value)를 설정. name 은 객체의 별칭 -->
+		<property name="name">
+			<value>홍길동</value>
+		</property>
+	</bean>
+
+	<bean id="personService1" class="com.spring.ex02.PersonServiceImpl">
+		<constructor-arg value="이순신" />
+	</bean>
+	
+	<bean id="personService2" class="com.spring.ex02.PersonServiceImpl">
+		<constructor-arg value="손흥민" />
+		<constructor-arg value="23" />
+	</bean>
+</beans>
