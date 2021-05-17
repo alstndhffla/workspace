@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class BoardController
  */
-@WebServlet("/board/*")
+//@WebServlet("/board/*")
 public class BoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	BoardService boardService;
@@ -26,7 +26,7 @@ public class BoardController extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		boardService = new BoardService();	//서블릿 초기화시 BoardService 객체를 생성.
+		boardService = new BoardService();
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class BoardController extends HttpServlet {
 		String nextPage = "";
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
-		String action = request.getPathInfo();	//요청명을 가져온다.
+		String action = request.getPathInfo();
 		System.out.println("action:" + action);
 		try {
 			List<ArticleVO> articlesList = new ArrayList<ArticleVO>();
@@ -57,9 +57,9 @@ public class BoardController extends HttpServlet {
 				articlesList = boardService.listArticles();
 				request.setAttribute("articlesList", articlesList);
 				nextPage = "/board01/listArticles.jsp";
-			} else if (action.equals("/listArticles.do")) {	//action 값이 같으면 전체 글을 조회
-				articlesList = boardService.listArticles();	//전체 글을 조회
-				request.setAttribute("articlesList", articlesList);	//조회된 글 목록을 articleList로 바인딩 한 후 listArticles.jsp로 포워딩한다.
+			} else if (action.equals("/listArticles.do")) {
+				articlesList = boardService.listArticles();
+				request.setAttribute("articlesList", articlesList);
 				nextPage = "/board01/listArticles.jsp";
 			}else {
 				nextPage = "/board01/listArticles.jsp";
