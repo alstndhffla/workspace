@@ -30,21 +30,26 @@ public class BoardDAO {
 		List articlesList = new ArrayList();
 		try {
 			conn = dataFactory.getConnection();
+			
+			//오라클의 계층형 SQL문을 실행.
 			String query = "SELECT LEVEL,articleNO,parentNO,title,content,id,writeDate" 
 			             + " from t_board"
 					     + " START WITH  parentNO=0" + " CONNECT BY PRIOR articleNO=parentNO"
 					     + " ORDER SIBLINGS BY articleNO DESC";
 			System.out.println(query);
+			
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				int level = rs.getInt("level");
-				int articleNO = rs.getInt("articleNO");
+				int level = rs.getInt("level");	//각 글의 깊이(계층)를 level 속성에 지정.
+				int articleNO = rs.getInt("articleNO");	//글 번호는 숫자형이므로 getInt()로 값을 가져온다.
 				int parentNO = rs.getInt("parentNO");
 				String title = rs.getString("title");
 				String content = rs.getString("content");
 				String id = rs.getString("id");
 				Date writeDate = rs.getDate("writeDate");
+				
+				//글 정보를 ArticleVO 객체의 속성에 설정한다.
 				ArticleVO article = new ArticleVO();
 				article.setLevel(level);
 				article.setArticleNO(articleNO);
@@ -53,6 +58,7 @@ public class BoardDAO {
 				article.setContent(content);
 				article.setId(id);
 				article.setWriteDate(writeDate);
+				
 				articlesList.add(article);
 			}
 			rs.close();

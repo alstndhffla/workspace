@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/download.do")
 public class FileDownloadController extends HttpServlet {
-	private static String ARTICLE_IMAGE_REPO = "C:\\myJSP\\workspace\\file_repo";
+	private static String ARTICLE_IMAGE_REPO = "C:\\board\\article_image";
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse

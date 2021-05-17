@@ -44,11 +44,8 @@ public class MemberController extends HttpServlet {
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		//요청에 대한 회원 정보 조회
 		List<MemberVO> membersList = memberDAO.listMembers();
-		//조회한 회원정보를 request에 바인딩
 		request.setAttribute("membersList", membersList);
-		//컨트롤러에서 표시하고자 하는 JSP로 포워딩
 		RequestDispatcher dispatch = request.getRequestDispatcher("/test01/listMembers.jsp");
 		dispatch.forward(request, response);
 	}

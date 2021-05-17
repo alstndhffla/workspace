@@ -31,10 +31,9 @@ public class MemberDAO {
 		List<MemberVO> membersList = new ArrayList();
 		try {
 			conn = dataFactory.getConnection();
-			//SQL문 작성
 			String query = "select * from  t_member order by joinDate desc";
 			System.out.println(query);
-			pstmt = conn.prepareStatement(query);	//객체를 생성하면서 SQl문을 인자로 전달.
+			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				String id = rs.getString("id");
@@ -42,7 +41,7 @@ public class MemberDAO {
 				String name = rs.getString("name");
 				String email = rs.getString("email");
 				Date joinDate = rs.getDate("joinDate");
-				MemberVO memberVO = new MemberVO(id, pwd, name, email, joinDate);	//조회한 회원 정보를 레코드 별로 VO 객체의 속성에 저장.
+				MemberVO memberVO = new MemberVO(id, pwd, name, email, joinDate);
 				membersList.add(memberVO);
 			}
 			rs.close();
