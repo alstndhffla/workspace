@@ -16,13 +16,27 @@
 	<resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!-- JSP에 타일즈 라이브러리를 사용하기 시작하면서 뷰리졸버를 사용하지 않으므로 주석 처리한다.
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+	-->
 	
-	<context:component-scan base-package="com.myspring.pro27" />
+	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>classpath:tiles/*.xml</beans:value>	<!-- 패키지 tiles의 모든 설정 xml 파일을 읽어 들인다. -->
+			</beans:list>
+		</beans:property>
+		
+		<beans:property name="preparerFactoryClass" value="org.springframework.web.servlet.view.tiles2.SpringBeanPreparerFactory"/>
+	</beans:bean>
 	
+	<beans:bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass"
+						value="org.springframework.web.servlet.view.tiles2.TilesView"/>
+	</beans:bean>
 	
-	
+	<context:component-scan base-package="com.myspring.pro27" />	
 </beans:beans>
