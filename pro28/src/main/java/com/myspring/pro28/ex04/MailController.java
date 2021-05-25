@@ -23,7 +23,9 @@ public class MailController {
     	request.setCharacterEncoding("utf-8");
     	response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
-       StringBuffer sb = new StringBuffer();
+       StringBuffer sb = new StringBuffer();	//StringBuffer 변수 sb를 선언한다.
+       
+       //문자열로 HTML 태그를 작성한 후 sb에 저장
  	   sb.append("<html><body>");
  		sb.append("<meta http-equiv='Content-Type' content='text/html; charset=euc-kr'>");
  		sb.append("<h1>"+"제품소개"+"<h1><br>");
@@ -33,7 +35,10 @@ public class MailController {
  		sb.append("</a>");
  		sb.append("<a href='http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788956746425&orderClick=LAG&Kc=#N'>상품보기</a>");
  		sb.append("</body></html>");
- 		String str=sb.toString();
+ 		
+ 		String str=sb.toString();	//문자열로 변환
+ 		
+ 		//HTML 형식의 내용을 메일로 보낸다.
  		mailService.sendMail("수신자@naver.com","신상품을 소개합니다.",str);
       
         out.print("메일을 보냈습니다!!");

@@ -14,6 +14,6 @@ public class LocaleController {
    public String locale(HttpServletRequest request, HttpServletResponse response) 
                                                           throws Exception {
       System.out.println("localeController입니다.");
-      return "locale";
+      return "locale";	//컨트롤러는 뷰이름만 반환한다.
    }
 }

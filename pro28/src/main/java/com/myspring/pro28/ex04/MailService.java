@@ -27,7 +27,7 @@ public class MailService {
     	   messageHelper.setSubject(subject);
     	   messageHelper.setTo(to);
     	   messageHelper.setFrom("송신자@naver.com", "홍길동");
-    	  messageHelper.setText(body,true);
+    	  messageHelper.setText(body,true);	//반드시 true로 설정
     	   mailSender.send(message);
     	  }catch(Exception e){
     		  e.printStackTrace();

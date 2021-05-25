@@ -9,8 +9,8 @@ public class ViewNameInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
 		try {
-			String viewName = getViewName(request);
-			request.setAttribute("viewName", viewName);
+			String viewName = getViewName(request);	//getViewName()메서드를 이용해 브라우저의 요청명에서 뷰이름을 가져온다.
+			request.setAttribute("viewName", viewName);	//뷰이름을 request에 바인딩한다.
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -26,7 +26,8 @@ public class ViewNameInterceptor extends HandlerInterceptorAdapter {
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 	}
-
+	
+	//요청명에서 뷰이름을 반환한다.
 	private String getViewName(HttpServletRequest request) throws Exception {
 		String contextPath = request.getContextPath();
 		String uri = (String) request.getAttribute("javax.servlet.include.request_uri");

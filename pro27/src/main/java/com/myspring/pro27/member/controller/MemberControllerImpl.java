@@ -36,9 +36,9 @@ public class MemberControllerImpl   implements MemberController {
 	@Override
 	@RequestMapping(value="/member/listMembers.do" ,method = RequestMethod.GET)
 	public ModelAndView listMembers(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String viewName = getViewName(request);
-//		String viewName = (String)request.getAttribute("viewName");
-		//System.out.println("viewName: " +viewName);
+		//String viewName = getViewName(request);
+		String viewName = (String)request.getAttribute("viewName");	//인터셉터에서 바인딩된 뷰이름을 가져온다.
+		System.out.println("viewName: " +viewName);
 		logger.info("info 레벨 viewName: "+ viewName);	//Logger 클래스의 info()메서드로 로그 메시지 레벨을 info로 설정.
 		logger.debug("debug viewName: "+ viewName);	//logger 클래스의 debug()메서드로 로그 메시지 레벨을 debug로 설정.
 		List membersList = memberService.listMembers();
@@ -124,7 +124,7 @@ public class MemberControllerImpl   implements MemberController {
 						       HttpServletRequest request, 
 						       HttpServletResponse response) throws Exception {
 		//String viewName = getViewName(request);
-		String viewName = (String)request.getAttribute("viewName");
+		String viewName = (String)request.getAttribute("viewName");	//인터셉터에서 바인딩된 뷰이름을 가져온다.
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("result",result);
 		mav.setViewName(viewName);

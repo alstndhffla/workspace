@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 'xmls:mvc'는 <mvc:~>태그를 사용하기 위해 추가한다. -->
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
@@ -7,7 +9,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-
+	
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
@@ -32,11 +34,11 @@
        <beans:property name="defaultEncoding" value="utf-8" />
     </beans:bean>
 
-   <mvc:interceptors>
+   <mvc:interceptors>	<!-- 인터셉터 기능을 사용하도록 설정 -->
       <mvc:interceptor>
-         <mvc:mapping path="/test/*.do"/> 
-				 <mvc:mapping path="/*/*.do"/>
-         <beans:bean class="com.myspring.pro28.ex05.LocaleInterceptor" />
+         <mvc:mapping path="/test/*.do"/>	<!-- 특정요청, 즉 /test/*.do 에 대해서만 인터셉터 빈을 수행 -->
+				 <mvc:mapping path="/*/*.do"/>	<!-- 모든 요청에 대해 인터셉터 빈을 수행. -->
+         <beans:bean class="com.myspring.pro28.ex05.LocaleInterceptor" />	<!-- 인터셉터 기능을 수행할 빈을 설정. -->
       </mvc:interceptor>
    </mvc:interceptors>
 </beans:beans>
